@@ -54,64 +54,69 @@ const MyNotes = ({search}) => {
           Create New Note
         </Button>
       </Link>
-      {error && <Error/>}
+      <Link to="/study">
+        <Button style={{ marginLeft: 10, marginBottom: 6 }} size="lg">
+          Study on youtube
+        </Button>
+      </Link>
+      {error && <Error />}
       {loading && <Loading />}
-      {notes?.reverse().filter((filterNote)=>
-       filterNote.title.toLowerCase().includes(search)
-    ).map((note) => {
-        return (
-          <Accordion defaultActiveKey="0" key={note._id}>
-            <Accordion.Item eventkey="0">
-              <Card style={{ margin: 10 }}>
-                <Card.Header style={{ display: "flex" }}>
-                  <span
-                    style={{
-                      color: "black",
-                      textDecoration: "none",
-                      flex: 1,
-                      cursor: "pointer",
-                      alignSelf: "center",
-                      fontSize: 18,
-                    }}
-                  >
-                    <Accordion.Button as={Card.Text} variant="link">
-                      {note.title}
-                    </Accordion.Button>
-                  </span>
-
-                  <div>
-                    <Button href={`/note/${note._id}`}>Edit</Button>
-                    <Button
-                      onClick={() => deleteHandler(note._id)}
-                      variant="danger"
-                      className="mx-2"
+      {notes
+        ?.reverse()
+        .filter((filterNote) => filterNote.title.toLowerCase().includes(search))
+        .map((note) => {
+          return (
+            <Accordion defaultActiveKey="0" key={note._id}>
+              <Accordion.Item eventkey="0">
+                <Card style={{ margin: 10 }}>
+                  <Card.Header style={{ display: "flex" }}>
+                    <span
+                      style={{
+                        color: "black",
+                        textDecoration: "none",
+                        flex: 1,
+                        cursor: "pointer",
+                        alignSelf: "center",
+                        fontSize: 18,
+                      }}
                     >
-                      Delete
-                    </Button>
-                  </div>
-                </Card.Header>
-                <Accordion.Collapse>
-                  <Card.Body>
-                    <h4>
-                      <Badge bg="success">{note.category}</Badge>
-                    </h4>
+                      <Accordion.Button as={Card.Text} variant="link">
+                        {note.title}
+                      </Accordion.Button>
+                    </span>
 
-                    <blockquote className="blockquote mb-0">
-                      <p>{note.content}</p>
-                      <footer className="blockquote-footer">
-                
-                        <cite title='Source Title'>
-                          {note.createdAt.substring(0,10)}
-                        </cite>
-                      </footer>
-                    </blockquote>
-                  </Card.Body>
-                </Accordion.Collapse>
-              </Card>
-            </Accordion.Item>
-          </Accordion>
-        );
-      })}
+                    <div>
+                      <Button href={`/note/${note._id}`}>Edit</Button>
+                      <Button
+                        onClick={() => deleteHandler(note._id)}
+                        variant="danger"
+                        className="mx-2"
+                      >
+                        Delete
+                      </Button>
+                    </div>
+                  </Card.Header>
+                  <Accordion.Collapse>
+                    <Card.Body>
+                      <h4>
+                        <Badge bg="success">{note.category}</Badge>
+                      </h4>
+
+                      <blockquote className="blockquote mb-0">
+                        <p>{note.content}</p>
+                        <footer className="blockquote-footer">
+                          <cite title="Source Title">
+                            {note.createdAt.substring(0, 10)}
+                          </cite>
+                        </footer>
+                      </blockquote>
+                    </Card.Body>
+                  </Accordion.Collapse>
+                </Card>
+              </Accordion.Item>
+            </Accordion>
+          );
+        })}
     </MainScreen>
   );
 }

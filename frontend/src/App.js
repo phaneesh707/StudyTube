@@ -10,7 +10,7 @@ import CreateNote from './screens/CreateNote/CreateNote'
 import SingleNote from './screens/SingleNote/SingleNote';
 import { useState } from 'react';
 import ProfileScreen from './screens/ProfileScreen/ProfileScreen';
-
+import Study from "./screens/Study/study"
 
 function App() {
   const [search,setSearch] = useState("");
@@ -26,6 +26,7 @@ function App() {
           <Route path="/createnote" element={<CreateNote />} exact />
           <Route path="/note/:id" element={<SingleNote />} exact />
           <Route path="/profile" element={<ProfileScreen />} exact />
+          <Route path="/study" element = {<Study />} exact />
         </Routes>
       </main>
       <Footer />

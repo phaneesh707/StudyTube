@@ -28,7 +28,7 @@ function Header({setSearch}) {
     <Navbar bg="primary" expand="lg" varient="dark">
       <Container fluid>
         <Navbar.Brand href="/">
-          <Link to="/"> Notez </Link>
+          <Link to="/"> STUDYTUBE </Link>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">

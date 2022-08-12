@@ -24,8 +24,8 @@ const LandingPage = () => {
         <Row>
           <div className="intro-text">
             <div>
-              <h1 className="title">Welcome to Notez</h1>
-              <p className="subtitle">one safe place for all your notes.</p>
+              <h1 className="title">Welcome to StudyTube</h1>
+              <p className="subtitle">one place to learn without distractions.</p>
               <div className="buttonContainer">
                 <a href="/login">
                   <Button size="lg" className="landingbutton">
