@@ -15,7 +15,7 @@ function Header({setSearch}) {
   const dispatch = useDispatch()
   const userLogin = useSelector(state=>state.userLogin)
   const {userInfo} = userLogin;
-  console.log(userInfo)
+  
 
   const handleLogout = () =>{
     dispatch(logout())
@@ -33,7 +33,7 @@ function Header({setSearch}) {
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav className="m-auto">
-            <Form className="d-flex">
+            {userInfo && <Form className="d-flex">
               <Form.Control
                 type="search"
                 placeholder="Search"
@@ -41,7 +41,7 @@ function Header({setSearch}) {
                 aria-label="Search"
                 onChange={e=>setSearch(e.target.value)}
               />
-            </Form>
+            </Form>}
           </Nav>
           {userInfo?<Nav
             className="me-auto my-2 my-lg-0"

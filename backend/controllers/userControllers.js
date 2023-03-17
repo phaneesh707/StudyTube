@@ -37,7 +37,9 @@ export const registerUser = asyncHandler(async (req,res)=>{
 
 export const loginUser =asyncHandler(async (req,res) =>{
   const { email, password } = req.body;
+
   const user = await User.findOne({ email });
+  
   if (user && (await user.matchPassword(password))) {
     res.status(201).json({
       _id: user._id,
