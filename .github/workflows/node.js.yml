@@ -2,7 +2,7 @@ name: Deploy
 
 on:
   push:
-    branches: [ main ]
+    branches: [ "main" ]
 
 jobs:
   build:
@@ -10,15 +10,16 @@ jobs:
     runs-on: self-hosted
     strategy:
       matrix:
-        node-version: [19.x]
+        node-version: [18.x]
        
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v2
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
+    - name: deploy api
     - run: |
             curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
             export NVM_DIR="$HOME/.nvm"
