@@ -31,7 +31,7 @@ export const listNotes = () => async (dispatch,getState) =>{
             }
         }
 
-        const {data} = await axios.get('http://127.0.0.1:5000/api/notes',config);
+        const {data} = await axios.get('https://studytube.darshanv.website/api/v1/notes',config);
         dispatch({
             type:NOTE_LIST_SUCCESS,
             payload:data

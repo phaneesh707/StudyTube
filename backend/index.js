@@ -4,10 +4,12 @@ import mongoose from "mongoose";
 import bodyParser from "body-parser";
 import dotenv from "dotenv";
 // import User from "./models/users.js";
-import routes from "./routes/userRoutes.js";
-import noteRoutes from "./routes/noteRoutes.js"
-import { errorHandler, notFound } from "./middlewares/errorMiddleware.js"
+// import routes from "./routes/userRoutes.js";
+// import noteRoutes from "./routes/noteRoutes.js"
+// import { errorHandler, notFound } from "./middlewares/errorMiddleware.js"
 import path from "path"
+import defaultRouter from "./routes/index.js";
+
 dotenv.config();
 
 
@@ -16,8 +18,17 @@ app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 app.use(bodyParser.json({ limit: "30mb", extended: true }));
 app.use(express.json());
 app.use(cors());
-app.use("/api/users", routes);
-app.use("/api/notes",noteRoutes);
+
+
+
+app.get("/", (req, res) => {
+  res.json({message: "Server is runnign  .."})
+})
+
+app.use("/api/v1", defaultRouter)
+
+// app.use("/api/users", routes);
+// app.use("/api/notes",noteRoutes);
 
 // ---------------deployment code------------
 
