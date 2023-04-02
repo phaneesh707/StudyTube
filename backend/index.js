@@ -35,8 +35,8 @@ app.use("/api/notes",noteRoutes);
 // ---------------deployment code------------
 
 
-app.use(notFound);
-app.use(errorHandler);   
+// app.use(notFound);
+// app.use(errorHandler);   
 
 const URL =  process.env.MONGO_URL;
 const PORT = process.env.PORT || 5000;
