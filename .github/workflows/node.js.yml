@@ -17,6 +17,7 @@ jobs:
 
     - name: deploy api
       run: |
+            ls
             cd ~/actions-runner/_work/StudyTube/StudyTube/backend
             curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
             export NVM_DIR="$HOME/.nvm"
