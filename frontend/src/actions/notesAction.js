@@ -66,7 +66,7 @@ export const createNote = (title,content,category) =>async (dispatch,getState)=>
             }
         }
 
-        const { data } = await axios.post("http://127.0.0.1:5000/api/notes/create",{title,content,category},config);
+        const { data } = await axios.post("https://studytube.darshanv.website/api/v1/notes/create",{title,content,category},config);
         dispatch({
             type:NOTE_CREATE_SUCCESS,
             payload:data
@@ -102,7 +102,7 @@ export const updateNoteAction = (id,title,content,category) =>async (dispatch,ge
           },
         };
 
-        const { data } = await axios.put(`http://127.0.0.1:5000/api/notes/${id}`,{id,title,content,category},config);
+        const { data } = await axios.put(`https://studytube.darshanv.website/api/v1/notes/${id}`,{id,title,content,category},config);
         dispatch({
             type:NOTE_UPDATE_SUCCESS,
             payload:data
@@ -141,7 +141,7 @@ export const deleteNoteAction =
       };
 
       const { data } = await axios.delete(
-        `http://127.0.0.1:5000/api/notes/${id}`,
+        `https://studytube.darshanv.website/api/v1/notes/${id}`,
         config
       );
       dispatch({

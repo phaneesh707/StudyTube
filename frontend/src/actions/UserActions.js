@@ -46,7 +46,7 @@ export const register = (name,email,password,pic) => async (dispatch) =>{
     };
 
     const { data } = await axios.post(
-      "http://127.0.0.1:5000/api/users/register",
+      "https://studytube.darshanv.website/api/v1/users/register",
       { name, email, password, pic },
       config
     );
@@ -88,7 +88,7 @@ export const updateProfile = (user) => async (dispatch,getState) => {
     }
 
     const { data } = await axios.post(
-      "http://127.0.0.1:5000/api/users/profile",user,config
+      "https://studytube.darshanv.website/api/v1/users/profile",user,config
     );
     dispatch({ type: USER_UPDATE_SUCCESS, payload: data });
     dispatch({ type: USER_LOGIN_SUCCESS, payload: data });

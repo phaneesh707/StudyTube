@@ -35,7 +35,7 @@ function SingleNote() {
 
   useEffect(() => {
     const fetching = async () => {
-      const { data } = await axios.get(`http://127.0.0.1:5000/api/notes/${Id}`);
+      const { data } = await axios.get(`https://studytube.darshanv.website/api/v1/notes/${Id}`);
       setTitle(data.title);
       setContent(data.content);
       setCategory(data.category);
